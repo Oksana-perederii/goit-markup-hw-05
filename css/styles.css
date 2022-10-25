@@ -88,6 +88,7 @@ img {
 }
 
 .link {
+  position: relative;
   text-decoration: none;
   color: var(--basic-text-color);
   font-weight: 500;
@@ -96,17 +97,19 @@ img {
   letter-spacing: 0.02em;
   padding: 32px 0;
   display: block;
-  transition: color 250ms;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) color 250ms;
 }
 
 .link::after {
+  position: absolute;
+  bottom: 0;
   display: block;
   width: 100%;
   height: 4px;
   background-color: currentColor;
   margin-top: 28px;
   opacity: 0;
-  transition: opacity 250ms;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) opacity 250ms;
   content: "";
 }
 .link:hover::after {
@@ -114,6 +117,7 @@ img {
 }
 
 .link-current {
+  position: relative;
   text-decoration: none;
   color: var(--accent-text-color);
   font-weight: 500;
@@ -127,6 +131,8 @@ img {
 }
 
 .link-current::after {
+  position: absolute;
+  bottom: 0;
   display: block;
   width: 100%;
   height: 4px;
@@ -157,7 +163,8 @@ img {
   letter-spacing: 0.02em;
   padding: 32px 0;
   display: flex;
-  transition: color 250ms;
+  align-items: center;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) color 250ms;
 }
 .contact-icon {
   margin-right: 10px;
@@ -219,7 +226,7 @@ img {
   min-width: 216px;
   border: 0;
   margin: 30px auto 0;
-  transition: background-color 250ms;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) background-color 250ms;
 }
 
 .hero-button:hover,
@@ -303,6 +310,27 @@ img {
   text-align: center;
   text-transform: none;
   margin: 0 auto 50px;
+}
+
+.gallery-working {
+  position: relative;
+}
+
+.gallery-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: var(--primary-text-color);
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(47, 48, 58, 0.8);
 }
 
 .gallery-foto {
@@ -402,7 +430,8 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 250ms, fill 250ms, border-radius 250ms;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) background-color 250ms, fill 250ms,
+    border-radius 250ms;
 }
 
 .team-link:hover,
@@ -437,7 +466,7 @@ img {
 
   width: 170px;
   height: 92px;
-  border: 1px solid #afb1b8;
+
   border-radius: 4px;
 }
 .clients-link {
@@ -447,8 +476,10 @@ img {
   align-items: center;
   width: 100%;
   height: 100%;
+  border: 1px solid #afb1b8;
   fill: var(--icon-color);
-  transition: border 250ms, border-radius 250ms, fill 250ms;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) border 250ms, border-radius 250ms,
+    fill 250ms;
 }
 .clients-link:hover,
 .clients-link:focus {
@@ -465,8 +496,9 @@ img {
 }
 .footer-container {
   display: flex;
+  align-items: baseline;
   width: 100%;
-  max-width: 1230px;
+  max-width: 1200px;
   margin: auto;
   padding: 0 15px;
 }
@@ -509,7 +541,7 @@ img {
   font-size: 14px;
   line-height: 1.7;
   margin-bottom: 9px;
-  transition: color 250ms;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) color 250ms;
 }
 
 .footer-mail:hover,
@@ -536,6 +568,8 @@ img {
 }
 
 .footer-title {
+  font-style: normal;
+  font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.03em;
@@ -562,7 +596,8 @@ img {
   justify-content: center;
   align-items: center;
   fill: var(--primary-text-color);
-  transition: background-color 250ms, border-radius 250ms;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) background-color 250ms,
+    border-radius 250ms;
 }
 
 .social-link:hover,
@@ -598,7 +633,8 @@ img {
   line-height: 1.6;
   letter-spacing: 0.03em;
   padding: 6px 22px;
-  transition: background-color 250ms, color 250ms, box-shadow 250ms;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) background-color 250ms, color 250ms,
+    box-shadow 250ms;
 }
 
 .filter.button:hover,
@@ -626,7 +662,7 @@ img {
   text-decoration: none;
   padding: 0;
   margin: 0;
-  transition: box-shadow 250ms;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) box-shadow 250ms;
 }
 
 .portfolio-link:hover,
@@ -634,11 +670,14 @@ img {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
+.portfolio-link:hover .text-description {
+  transform: translateY(0%);
+}
 
 .portfolio.foto {
 }
 
-.portfolio.container {
+.portfolio-container {
   border: 1px solid #eeeeee;
   border-top: none;
   padding: 20px 24px;
@@ -664,12 +703,26 @@ img {
   padding: 0;
 }
 .portfolio-description {
+  position: relative;
+  overflow: hidden;
+}
+.text-description {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  padding: 64px 24px;
+  background: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+  transition: cubic-bezier(0.4, 0, 0.2, 1) transform 250ms;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+
+  color: var(--primary-text-color);
 }
+
 /* modal */
 .backdrop {
   position: fixed;
@@ -679,7 +732,7 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-  transition: opacity 250ms, visibility 250ms;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) opacity 250ms, visibility 250ms;
 }
 .is-hidden {
   opacity: 0;
@@ -701,11 +754,13 @@ img {
 }
 .modal-close-button {
   display: flex;
+  align-items: center;
   justify-items: center;
-
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
   background-color: var(--basic-bcg-color);
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
